@@ -40,8 +40,3 @@ else:
 		uninstall()
 
 
-
-sdasdwqas
-
-
-asdadsd
