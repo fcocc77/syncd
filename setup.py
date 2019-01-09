@@ -14,19 +14,19 @@ def install():
     shutil.copy(path+"/bin/syncd", "/opt/syncDirectory")
     shutil.copy(path+"/bin/syncd_run.py", "/opt/syncDirectory")
 
-    shutil.copy(path+"/bin/syncd", "/etc/init.d")
+    shutil.copy(path+"/bin/syncd.service", "/etc/systemd/system")
 
-    os.system("service syncd start")
-    os.system("chkconfig syncd on")
+    os.system("systemctl start syncd")
+    os.system("systemctl enable syncd")
 
 
 def uninstall():
 
-    os.system("service syncd stop")
+    os.system("systemctl stop syncd")
     shutil.rmtree(installFolder)
 
     try:
-        os.remove("/etc/init.d/syncd")
+        os.remove("/etc/systemd/system/syncd.service")
     except:
         None
 

@@ -1,0 +1,12 @@
+[Unit]
+Description=Service Sycnd
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/bin/python  '/opt/syncDirectory/syncd_run.py' start
+ExecStop=/bin/python '/opt/syncDirectory/syncd_run.py' stop
+TimeoutStartSec=0
+
+[Install]
+WantedBy=default.target

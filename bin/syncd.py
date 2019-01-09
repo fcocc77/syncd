@@ -309,7 +309,7 @@ while 1:
             # respaldo de server1 ------------------------------
             sync_directory(disk="/mnt/server_01",
                            backup=["/media/server_01_backup"],
-                           trash="/media/server_01_trash"
+                           trash=False
                            )
             # -----------------------------------------------------
 
