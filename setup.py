@@ -11,7 +11,7 @@ installFolder = "/opt/syncDirectory"
 def install():
     os.mkdir(installFolder)
     shutil.copy(path+"/bin/syncd.py", "/opt/syncDirectory")
-    shutil.copy(path+"/bin/syncd", "/opt/syncDirectory")
+    shutil.copy(path+"/bin/syncd.service", "/opt/syncDirectory")
     shutil.copy(path+"/bin/syncd_run.py", "/opt/syncDirectory")
 
     shutil.copy(path+"/bin/syncd.service", "/etc/systemd/system")
