@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=forking
-ExecStart=/bin/python  '/opt/syncDirectory/syncd_run.py' start
-ExecStop=/bin/python '/opt/syncDirectory/syncd_run.py' stop
+ExecStart=/bin/sh -c '/opt/syncDirectory/syncd.sh' start
+ExecStop=/bin/sh -c '/opt/syncDirectory/syncd.sh' stop
 TimeoutStartSec=0
 
 [Install]
