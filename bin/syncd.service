@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=forking
-ExecStart=/bin/sh -c '/opt/syncDirectory/syncd.sh' start
-ExecStop=/bin/sh -c '/opt/syncDirectory/syncd.sh' stop
+ExecStart=/opt/syncd/syncd.sh start
+ExecStop=/opt/syncd/syncd.sh stop
 TimeoutStartSec=0
 
 [Install]

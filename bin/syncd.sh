@@ -1,13 +1,15 @@
-pid_file='/opt/syncDirectory/pid'
-log_file='/opt/syncDirectory/log'
+#!/bin/sh
+path=/opt/syncd
+pid_file=$path/pid
+log_file=$path/log
 name='Sync Directory'
 
 start() {
  	pid=$(cat $pid_file)
 
-	if ! kill -0 $pid > /dev/null 2>&1; then
+	if ! kill -0 $pid 2> /dev/null; then
 		echo $name "has started."
-        python "/opt/syncDirectory/syncd.py" &> $log & echo $! > $pid_file
+        	python $path/syncd.py &> $log_file & echo $! > $pid_file
 	else
 		echo $name "is running now."
 	fi
@@ -15,11 +17,9 @@ start() {
 
 stop() {
 	cpid=$(cat $pid_file)
-	ppid=$(pgrep -P $cpid)
 
-	if kill -0 $cpid > /dev/null 2>&1; then
-		kill $ppid
-		kill $cpid
+	if kill -0 $cpid 2> /dev/null; then
+		kill $cpid > /dev/null
 		echo $name "has stopped."
 	else
 		echo "Is not running."
