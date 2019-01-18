@@ -268,7 +268,7 @@ class sync_directory():
         return proc.communicate()[0]
 
     def log(self, info):
-        log_file = "/opt/syncDirectory/"+self.src.split("/")[-1]+"_log"
+        log_file = "/opt/syncd/"+self.src.split("/")[-1]+"_log"
         f = open(log_file, "a")
         f.write(info+"\n")
         f.close()
